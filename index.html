@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nāda Mudrā — Sacred Sanskrit Compositional Universe</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cosmos:#050714;--deep:#09092b;--mid:#0e1040;--surf:#161852;
+  --bord:rgba(212,160,23,0.18);--bord2:rgba(212,160,23,0.35);
+  --gold:#D4A017;--goldb:#F5C842;--goldd:#6B4F0A;
+  --saffron:#FF9933;--crim:#8B1A1A;--rose:#C84B31;
+  --cream:#FFF8E7;--silver:#C5CDD8;--muted:#8590A0;
+  --jagrat:#F59E0B;--svapna:#818CF8;--sushupti:#34D399;--turiya:#F472B6;
+  --fd:'Cinzel Decorative',serif;--fh:'Cinzel',serif;
+  --fb:'Cormorant Garamond',serif;--fdev:'Noto Sans Devanagari',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--cosmos);color:var(--cream);
+  font-family:var(--fb);font-size:16px;line-height:1.7;
+  min-height:100vh;overflow-x:hidden;
+}
+body::before{
+  content:'';position:fixed;inset:0;
+  background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(212,160,23,.12) 0%,transparent 65%),
+    radial-gradient(ellipse 55% 40% at 85% 95%,rgba(139,26,26,.09) 0%,transparent 55%),
+    radial-gradient(ellipse 45% 45% at 15% 75%,rgba(129,140,248,.07) 0%,transparent 55%);
+  pointer-events:none;z-index:0;
+}
+.wrapper{position:relative;z-index:1;max-width:1420px;margin:0 auto;padding:0 16px;}
+
+/* === SVG BG MANDALA === */
+.mandala-wrap{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:700px;height:700px;opacity:.025;pointer-events:none;z-index:0;
+  animation:mspin 150s linear infinite;}
+@keyframes mspin{to{transform:translate(-50%,-50%) rotate(360deg);}}
+
+/* === HEADER === */
+header{text-align:center;padding:36px 20px 24px;border-bottom:1px solid var(--bord);}
+.om-symbol{font-family:var(--fdev);font-size:2.6rem;color:var(--gold);
+  opacity:.55;display:block;animation:gpulse 5s ease-in-out infinite;}
+@keyframes gpulse{0%,100%{text-shadow:0 0 18px rgba(212,160,23,.25);}
+  50%{text-shadow:0 0 40px rgba(212,160,23,.7),0 0 70px rgba(212,160,23,.25);}}
+.h-title{font-family:var(--fd);font-size:clamp(1.7rem,3.5vw,3.2rem);
+  color:var(--gold);letter-spacing:.07em;line-height:1.1;margin-top:6px;}
+.h-sub{font-family:var(--fh);font-size:clamp(.7rem,1.2vw,.9rem);
+  color:var(--silver);letter-spacing:.28em;text-transform:uppercase;
+  display:block;margin-top:7px;font-weight:400;}
+.h-dev{font-family:var(--fdev);font-size:1.05rem;color:var(--saffron);
+  opacity:.65;display:block;margin-top:5px;}
+
+/* === LAYER SELECTOR === */
+.layer-bar{display:flex;gap:8px;justify-content:center;padding:18px 16px;
+  flex-wrap:wrap;border-bottom:1px solid var(--bord);}
+.lb{padding:10px 18px;border:1px solid currentColor;background:transparent;
+  color:var(--silver);font-family:var(--fh);font-size:.72rem;
+  letter-spacing:.14em;cursor:pointer;transition:all .3s ease;
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+  text-align:center;}
+.lb-san{display:block;font-family:var(--fdev);font-size:.95rem;margin-bottom:2px;}
+.lb-nm{display:block;font-size:.78rem;font-weight:600;margin-bottom:1px;}
+.lb-sub{display:block;font-size:.58rem;opacity:.65;letter-spacing:.08em;}
+.lb:hover{background:rgba(255,255,255,.04);}
+.lb.active{background:rgba(255,255,255,.09);}
+.lb[data-l=jagrat]{color:var(--jagrat);}
+.lb[data-l=svapna]{color:var(--svapna);}
+.lb[data-l=sushupti]{color:var(--sushupti);}
+.lb[data-l=turiya]{color:var(--turiya);}
+
+/* === MAIN LAYOUT === */
+.main{display:grid;grid-template-columns:190px 1fr;gap:0;border-top:none;}
+
+/* === VEDA SIDEBAR === */
+.vsidebar{border-right:1px solid var(--bord);padding:16px 0;}
+.vbtn{display:block;width:100%;padding:16px 18px;border:none;
+  background:transparent;color:var(--silver);text-align:left;
+  cursor:pointer;transition:all .3s;border-left:3px solid transparent;
+  font-family:var(--fb);}
+.vbtn-name{font-family:var(--fh);font-size:.8rem;font-weight:600;
+  letter-spacing:.1em;display:block;color:var(--gold);}
+.vbtn-dev{font-family:var(--fdev);font-size:1.05rem;display:block;margin:3px 0;}
+.vbtn-theme{font-size:.67rem;opacity:.55;letter-spacing:.12em;text-transform:uppercase;}
+.vbtn:hover{background:rgba(212,160,23,.04);}
+.vbtn.active{background:rgba(212,160,23,.07);border-left-color:var(--gold);color:var(--cream);}
+
+/* === CONTENT === */
+.carea{padding:18px;}
+
+/* === TAB NAV === */
+.tnav{display:flex;gap:2px;flex-wrap:wrap;border-bottom:1px solid var(--bord);
+  margin-bottom:18px;padding-bottom:0;}
+.tbtn{padding:9px 11px;border:none;background:transparent;color:var(--muted);
+  font-family:var(--fh);font-size:.62rem;letter-spacing:.09em;
+  cursor:pointer;transition:all .3s;border-bottom:2px solid transparent;
+  margin-bottom:-1px;white-space:nowrap;text-align:center;}
+.tbtn-icon{display:block;font-size:1.1rem;margin-bottom:2px;}
+.tbtn-dev{display:block;font-family:var(--fdev);font-size:.78rem;}
+.tbtn-nm{display:block;font-size:.6rem;letter-spacing:.07em;}
+.tbtn:hover{color:var(--gold);}
+.tbtn.active{color:var(--goldb);border-bottom-color:var(--gold);}
+
+/* === PANEL === */
+.panel{min-height:420px;}
+.loading{display:flex;align-items:center;justify-content:center;
+  min-height:320px;flex-direction:column;gap:14px;}
+.spin-ring{width:52px;height:52px;border:2px solid transparent;
+  border-top-color:var(--gold);border-right-color:var(--saffron);
+  border-radius:50%;animation:spin .9s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.spin-txt{font-family:var(--fdev);color:var(--gold);font-size:1rem;
+  animation:gpulse 2s ease-in-out infinite;}
+
+/* === KNOWLEDGE HEADER === */
+.kh{margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--bord);}
+.kh h2{font-family:var(--fh);font-size:1.35rem;color:var(--gold);letter-spacing:.1em;}
+.kh-dev{font-family:var(--fdev);font-size:1.6rem;color:var(--saffron);display:block;margin:3px 0;}
+.kh-sub{font-size:.88rem;color:var(--silver);font-style:italic;}
+.kh-layer{display:inline-block;padding:3px 12px;border:1px solid currentColor;
+  font-family:var(--fh);font-size:.62rem;letter-spacing:.15em;
+  text-transform:uppercase;margin-top:8px;}
+
+/* === VERSE BLOCK === */
+.vblock{background:rgba(212,160,23,.04);border:1px solid rgba(212,160,23,.2);
+  border-left:3px solid var(--gold);padding:18px 20px;margin:14px 0;}
+.vb-san{font-family:var(--fdev);font-size:1.15rem;color:var(--goldb);
+  line-height:2;display:block;margin-bottom:7px;}
+.vb-rom{font-style:italic;color:var(--saffron);font-size:.95rem;
+  display:block;margin-bottom:6px;}
+.vb-mean{font-size:.88rem;color:var(--silver);}
+
+/* === GRID CARDS === */
+.gcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:10px;margin:14px 0;}
+.gcard{background:rgba(22,24,80,.5);border:1px solid rgba(212,160,23,.14);
+  padding:14px;transition:all .3s;cursor:pointer;position:relative;overflow:hidden;}
+.gcard::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(212,160,23,.06) 0%,transparent 55%);
+  opacity:0;transition:opacity .3s;}
+.gcard:hover::before{opacity:1;}
+.gcard:hover{border-color:rgba(212,160,23,.38);transform:translateY(-2px);}
+.gc-dev{font-family:var(--fdev);font-size:1.2rem;color:var(--gold);display:block;margin-bottom:3px;}
+.gc-name{font-family:var(--fh);font-size:.8rem;color:var(--goldb);letter-spacing:.04em;display:block;}
+.gc-rom{font-size:.73rem;color:var(--saffron);display:block;margin-bottom:5px;}
+.gc-desc{font-size:.78rem;color:var(--silver);line-height:1.5;}
+.gc-tag{display:inline-block;padding:2px 7px;background:rgba(212,160,23,.08);
+  border:1px solid rgba(212,160,23,.18);font-size:.6rem;letter-spacing:.1em;
+  color:var(--gold);margin-top:7px;text-transform:uppercase;}
+
+/* === SWARAS === */
+.swgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin:18px 0;}
+.swcard{background:rgba(22,24,80,.75);border:1px solid rgba(212,160,23,.2);
+  padding:14px 6px;text-align:center;cursor:pointer;transition:all .4s ease;
+  position:relative;}
+.swcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:currentColor;transform:scaleX(0);transition:transform .3s;transform-origin:center;}
+.swcard:hover::after{transform:scaleX(1);}
+.swcard:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(0,0,0,.4);}
+.sw-note{font-family:var(--fd);font-size:1.5rem;color:var(--gold);display:block;}
+.sw-dev{font-family:var(--fdev);font-size:.9rem;display:block;margin:3px 0;}
+.sw-full{font-size:.6rem;color:var(--silver);display:block;}
+.sw-icon{font-size:1.3rem;display:block;margin-top:7px;}
+.sw-god{font-size:.62rem;color:var(--saffron);display:block;margin-top:2px;}
+.sw-freq{font-size:.6rem;color:var(--muted);display:block;margin-top:1px;}
+
+/* === RAGA GRID === */
+.ragagrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin:14px 0;}
+.ragacard{background:rgba(14,16,64,.7);border:1px solid rgba(212,160,23,.15);
+  padding:14px;transition:all .3s;cursor:pointer;}
+.ragacard:hover{border-color:rgba(212,160,23,.4);background:rgba(22,26,80,.9);}
+.raga-name{font-family:var(--fh);font-size:.92rem;color:var(--goldb);letter-spacing:.05em;}
+.raga-dev{font-family:var(--fdev);font-size:1rem;color:var(--gold);display:block;margin:3px 0;}
+.raga-type{font-size:.68rem;color:var(--saffron);text-transform:uppercase;letter-spacing:.12em;}
+.raga-aroh{font-size:.78rem;color:var(--silver);margin-top:6px;display:block;}
+.raga-time{font-size:.68rem;color:var(--muted);margin-top:3px;font-style:italic;}
+.raga-rasa{display:inline-block;padding:2px 8px;background:rgba(212,160,23,.08);
+  border:1px solid rgba(212,160,23,.18);font-size:.62rem;color:var(--gold);
+  letter-spacing:.1em;margin-top:7px;text-transform:uppercase;}
+
+/* === INFO BLOCK === */
+.infoblock{background:rgba(14,16,64,.6);border:1px solid rgba(212,160,23,.12);
+  padding:18px;margin:12px 0;font-size:.88rem;color:var(--silver);line-height:1.8;}
+.infoblock h3{font-family:var(--fh);color:var(--gold);font-size:.9rem;
+  letter-spacing:.1em;margin-bottom:8px;}
+.highlight{color:var(--saffron);font-style:italic;}
+
+/* === SACRED DIVIDER === */
+.sdiv{text-align:center;margin:20px 0;color:var(--goldd);
+  font-size:.9rem;letter-spacing:.5em;}
+
+/* === COMPOSITION STUDIO === */
+.studio{margin-top:36px;padding-top:28px;border-top:1px solid var(--bord);}
+.studio-hdr{text-align:center;margin-bottom:24px;}
+.studio-hdr h2{font-family:var(--fd);font-size:1.4rem;color:var(--gold);letter-spacing:.08em;}
+.studio-hdr p{color:var(--silver);font-size:.88rem;margin-top:5px;}
+.comp-counter{display:inline-block;background:rgba(212,160,23,.08);
+  border:1px solid rgba(212,160,23,.25);padding:5px 18px;
+  font-family:var(--fh);font-size:.72rem;color:var(--gold);
+  letter-spacing:.18em;margin-top:9px;}
+
+/* === UNIVERSE METER === */
+.umeter{margin:12px auto;max-width:520px;}
+.um-track{height:3px;background:rgba(212,160,23,.1);border-radius:2px;overflow:hidden;}
+.um-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--saffron));transition:width 1.2s ease;}
+.um-nums{display:flex;justify-content:space-between;font-family:var(--fh);
+  font-size:.65rem;color:var(--muted);margin-top:4px;}
+
+/* === PARAMS === */
+.params{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:10px;margin-bottom:16px;}
+.pg{display:flex;flex-direction:column;gap:3px;}
+.pg label{font-family:var(--fh);font-size:.65rem;letter-spacing:.15em;
+  color:var(--gold);text-transform:uppercase;}
+.pg select,.pg textarea,.pg input{
+  background:rgba(22,24,80,.8);border:1px solid rgba(212,160,23,.28);
+  color:var(--cream);padding:8px 10px;font-family:var(--fb);
+  font-size:.88rem;cursor:pointer;appearance:none;outline:none;
+  transition:border-color .3s;}
+.pg select:focus,.pg textarea:focus,.pg input:focus{border-color:var(--gold);}
+.pg textarea{resize:vertical;min-height:72px;}
+
+/* === GENERATE BUTTON === */
+.genbtn{display:block;width:100%;padding:15px;
+  background:linear-gradient(135deg,rgba(212,160,23,.18) 0%,rgba(139,26,26,.18) 100%);
+  border:1px solid var(--gold);color:var(--gold);
+  font-family:var(--fh);font-size:.92rem;letter-spacing:.2em;
+  cursor:pointer;text-transform:uppercase;transition:all .4s;
+  position:relative;overflow:hidden;}
+.genbtn::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(212,160,23,.28) 0%,rgba(255,153,51,.18) 100%);
+  transform:scaleX(0);transition:transform .4s;transform-origin:left;}
+.genbtn:hover::before{transform:scaleX(1);}
+.genbtn:hover{box-shadow:0 0 28px rgba(212,160,23,.25);}
+.genbtn:disabled{opacity:.45;cursor:not-allowed;}
+.genbtn:disabled::before{transform:none;}
+
+/* === RESULT === */
+.result{margin-top:22px;background:rgba(8,10,42,.85);
+  border:1px solid rgba(212,160,23,.22);padding:22px;position:relative;display:none;}
+.result.show{display:block;animation:fadeIn .6s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+.result::before{content:'✦';position:absolute;top:-10px;left:50%;
+  transform:translateX(-50%);background:var(--cosmos);
+  padding:0 10px;color:var(--gold);font-size:1.1rem;}
+.r-id{font-family:var(--fh);font-size:.65rem;color:var(--goldd);
+  letter-spacing:.2em;margin-bottom:14px;}
+.rsec{margin-bottom:18px;}
+.rsec-title{font-family:var(--fh);font-size:.68rem;color:var(--saffron);
+  letter-spacing:.2em;text-transform:uppercase;margin-bottom:7px;
+  padding-bottom:3px;border-bottom:1px solid rgba(255,153,51,.18);}
+.r-san{font-family:var(--fdev);font-size:1.2rem;color:var(--goldb);
+  line-height:2;display:block;}
+.r-rom{font-style:italic;color:var(--saffron);font-size:.95rem;
+  display:block;margin-top:7px;}
+.r-txt{font-size:.9rem;color:var(--silver);line-height:1.8;}
+.rtags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;}
+.rtag{padding:3px 11px;background:rgba(212,160,23,.08);
+  border:1px solid rgba(212,160,23,.22);font-size:.67rem;
+  color:var(--gold);letter-spacing:.1em;font-family:var(--fh);}
+.savebtn{margin-top:14px;padding:9px 22px;background:rgba(212,160,23,.12);
+  border:1px solid var(--gold);color:var(--gold);font-family:var(--fh);
+  font-size:.75rem;letter-spacing:.15em;cursor:pointer;transition:all .3s;}
+.savebtn:hover{background:rgba(212,160,23,.22);}
+
+/* === SAVED === */
+.saved-sec{margin-top:28px;}
+.saved-sec h3{font-family:var(--fh);font-size:.85rem;color:var(--gold);
+  letter-spacing:.15em;margin-bottom:14px;}
+.saved-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:10px;max-height:380px;overflow-y:auto;}
+.scard{background:rgba(14,18,60,.6);border:1px solid rgba(212,160,23,.13);
+  padding:13px;cursor:pointer;transition:all .3s;}
+.scard:hover{border-color:rgba(212,160,23,.36);}
+.sc-id{font-family:var(--fh);font-size:.6rem;color:var(--goldd);letter-spacing:.15em;}
+.sc-title{font-family:var(--fdev);font-size:1.05rem;color:var(--gold);margin:3px 0;}
+.sc-meta{font-size:.72rem;color:var(--muted);}
+
+/* === FOOTER === */
+footer{text-align:center;padding:24px;border-top:1px solid var(--bord);
+  margin-top:40px;font-size:.75rem;color:var(--muted);font-family:var(--fh);
+  letter-spacing:.12em;}
+
+/* === RESPONSIVE === */
+@media(max-width:820px){
+  .main{grid-template-columns:1fr;}
+  .vsidebar{display:flex;flex-wrap:wrap;border-right:none;
+    border-bottom:1px solid var(--bord);padding:10px;}
+  .vbtn{width:auto;padding:10px 14px;}
+  .swgrid{grid-template-columns:repeat(4,1fr);}
+  .tbtn{padding:7px 8px;}
+}
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-track{background:var(--deep);}
+::-webkit-scrollbar-thumb{background:var(--goldd);border-radius:3px;}
+
+/* === ERROR === */
+.errmsg{background:rgba(139,26,26,.15);border:1px solid rgba(200,75,49,.3);
+  padding:14px;color:#F4A09A;font-size:.85rem;margin-top:14px;}
+</style>
+</head>
+<body>
+
+<!-- Mandala SVG Background -->
+<div class="mandala-wrap">
+<svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(350,350)">
+    <circle r="330" fill="none" stroke="#D4A017" stroke-width="0.5"/>
+    <circle r="270" fill="none" stroke="#D4A017" stroke-width="0.3"/>
+    <circle r="210" fill="none" stroke="#D4A017" stroke-width="0.5"/>
+    <circle r="150" fill="none" stroke="#D4A017" stroke-width="0.3"/>
+    <circle r="90" fill="none" stroke="#D4A017" stroke-width="0.5"/>
+    <g id="petals">
+      <ellipse rx="30" ry="80" cy="-240" fill="none" stroke="#D4A017" stroke-width="0.4"/>
+      <ellipse rx="30" ry="80" cy="-240" fill="none" stroke="#D4A017" stroke-width="0.4" transform="rotate(30)"/>
+      <ellipse rx="30" ry="80" cy="-240" fill="none" stroke="#D4A017" stroke-width="0.4" transform="rotate(60)"/>
+      <ellipse rx="30" ry="80" cy="-240" fill="none" stroke="#D4A017" stroke-width="0.4" transform="rotate(90)"/>
+      <ellipse rx="30" ry="80" cy="-240" fill="none" stroke="#D4A017" stroke-width="0.4" transform="rotate(120)"/>
+      <ellipse rx="30" ry="80" cy="-240" fill="none" stroke="#D4A017" stroke-width="0.4" transform="rotate(150)"/>
+      <ellipse rx="30" ry="80" cy="-240" fill="none" stroke="#D4A017" stroke-width="0.4" transform="rotate(180)"/>
+      <ellipse rx="30" ry="80" cy="-240" fill="none" stroke="#D4A017" stroke-width="0.4" transform="rotate(210)"/>
+      <ellipse rx="30" ry="80" cy="-240" fill="none" stroke="#D4A017" stroke-width="0.4" transform="rotate(240)"/>
+      <ellipse rx="30" ry="80" cy="-240" fill="none" stroke="#D4A017" stroke-width="0.4" transform="rotate(270)"/>
+      <ellipse rx="30" ry="80" cy="-240" fill="none" stroke="#D4A017" stroke-width="0.4" transform="rotate(300)"/>
+      <ellipse rx="30" ry="80" cy="-240" fill="none" stroke="#D4A017" stroke-width="0.4" transform="rotate(330)"/>
+    </g>
+    <polygon points="0,-300 260,150 -260,150" fill="none" stroke="#D4A017" stroke-width="0.4"/>
+    <polygon points="0,300 260,-150 -260,-150" fill="none" stroke="#D4A017" stroke-width="0.4"/>
+    <polygon points="0,-200 173,100 -173,100" fill="none" stroke="#D4A017" stroke-width="0.3"/>
+    <polygon points="0,200 173,-100 -173,-100" fill="none" stroke="#D4A017" stroke-width="0.3"/>
+  </g>
+</svg>
+</div>
+
+<div class="wrapper">
+
+<!-- HEADER -->
+<header>
+  <span class="om-symbol">ॐ</span>
+  <h1 class="h-title">Nāda Mudrā</h1>
+  <span class="h-sub">Sacred Sanskrit Compositional Universe · Vedic Consciousness Framework</span>
+  <span class="h-dev">नाद मुद्रा — संस्कृत काव्य · राग · मुद्रा · कारण · वेद</span>
+</header>
+
+<!-- LAYER SELECTOR -->
+<div class="layer-bar">
+  <button class="lb active" data-l="jagrat" onclick="setLayer('jagrat',this)">
+    <span class="lb-san">जाग्रत्</span>
+    <span class="lb-nm">Jagrat</span>
+    <span class="lb-sub">Waking · Sthula · Direct</span>
+  </button>
+  <button class="lb" data-l="svapna" onclick="setLayer('svapna',this)">
+    <span class="lb-san">स्वप्न</span>
+    <span class="lb-nm">Svapna</span>
+    <span class="lb-sub">Dream · Sukshma · Symbolic</span>
+  </button>
+  <button class="lb" data-l="sushupti" onclick="setLayer('sushupti',this)">
+    <span class="lb-san">सुषुप्ति</span>
+    <span class="lb-nm">Sushupti</span>
+    <span class="lb-sub">Deep Sleep · Karana · Mystical</span>
+  </button>
+  <button class="lb" data-l="turiya" onclick="setLayer('turiya',this)">
+    <span class="lb-san">तुरीय</span>
+    <span class="lb-nm">Turiya</span>
+    <span class="lb-sub">Beyond · Transcendent · Non-Dual</span>
+  </button>
+</div>
+
+<!-- MAIN GRID -->
+<div class="main">
+
+  <!-- VEDA SIDEBAR -->
+  <nav class="vsidebar">
+    <button class="vbtn active" data-v="rigveda" onclick="setVeda('rigveda',this)">
+      <span class="vbtn-name">Ṛigveda</span>
+      <span class="vbtn-dev">ऋग्वेद</span>
+      <span class="vbtn-theme">Jñāna · Hymns</span>
+    </button>
+    <button class="vbtn" data-v="samaveda" onclick="setVeda('samaveda',this)">
+      <span class="vbtn-name">Sāmaveda</span>
+      <span class="vbtn-dev">सामवेद</span>
+      <span class="vbtn-theme">Bhakti · Music</span>
+    </button>
+    <button class="vbtn" data-v="yajurveda" onclick="setVeda('yajurveda',this)">
+      <span class="vbtn-name">Yajurveda</span>
+      <span class="vbtn-dev">यजुर्वेद</span>
+      <span class="vbtn-theme">Karma · Ritual</span>
+    </button>
+    <button class="vbtn" data-v="atharvaveda" onclick="setVeda('atharvaveda',this)">
+      <span class="vbtn-name">Atharvaveda</span>
+      <span class="vbtn-dev">अथर्ववेद</span>
+      <span class="vbtn-theme">Shakti · Mystical</span>
+    </button>
+  </nav>
+
+  <!-- CONTENT AREA -->
+  <div class="carea">
+
+    <!-- TABS -->
+    <div class="tnav">
+      <button class="tbtn active" data-t="mudras" onclick="setTab('mudras',this)">
+        <span class="tbtn-icon">🤲</span>
+        <span class="tbtn-dev">मुद्रा</span>
+        <span class="tbtn-nm">Mudras</span>
+      </button>
+      <button class="tbtn" data-t="karanas" onclick="setTab('karanas',this)">
+        <span class="tbtn-icon">💃</span>
+        <span class="tbtn-dev">कारण</span>
+        <span class="tbtn-nm">Karanas</span>
+      </button>
+      <button class="tbtn" data-t="swaras" onclick="setTab('swaras',this)">
+        <span class="tbtn-icon">🎵</span>
+        <span class="tbtn-dev">स्वर</span>
+        <span class="tbtn-nm">Sapta Swaras</span>
+      </button>
+      <button class="tbtn" data-t="ragas" onclick="setTab('ragas',this)">
+        <span class="tbtn-icon">🎼</span>
+        <span class="tbtn-dev">राग</span>
+        <span class="tbtn-nm">Ragas</span>
+      </button>
+      <button class="tbtn" data-t="classical" onclick="setTab('classical',this)">
+        <span class="tbtn-icon">🏛️</span>
+        <span class="tbtn-dev">शास्त्रीय</span>
+        <span class="tbtn-nm">Classical</span>
+      </button>
+      <button class="tbtn" data-t="semiclass" onclick="setTab('semiclass',this)">
+        <span class="tbtn-icon">🌸</span>
+        <span class="tbtn-dev">उप-शास्त्रीय</span>
+        <span class="tbtn-nm">Semi-Classical</span>
+      </button>
+      <button class="tbtn" data-t="folklore" onclick="setTab('folklore',this)">
+        <span class="tbtn-icon">🌾</span>
+        <span class="tbtn-dev">लोक</span>
+        <span class="tbtn-nm">Folklore</span>
+      </button>
+      <button class="tbtn" data-t="poetry" onclick="setTab('poetry',this)">
+        <span class="tbtn-icon">📜</span>
+        <span class="tbtn-dev">काव्य</span>
+        <span class="tbtn-nm">Poetry</span>
+      </button>
+    </div>
+
+    <!-- PANEL -->
+    <div class="panel" id="panel">
+      <div class="loading"><div class="spin-ring"></div><span class="spin-txt">प्रारम्भ…</span></div>
+    </div>
+
+    <!-- SACRED DIVIDER -->
+    <div class="sdiv">✦ ॐ ✦ तत्सत् ✦ ॐ ✦</div>
+
+    <!-- COMPOSITION STUDIO -->
+    <div class="studio">
+      <div class="studio-hdr">
+        <h2>रचना-स्टूडियो — Composition Studio</h2>
+        <p>Generate unique Sanskrit-grounded compositions across 50,000+ combinatorial pathways</p>
+        <div class="comp-counter" id="compCounter">0 / 50,000 Compositions Created</div>
+        <div class="umeter">
+          <div class="um-track"><div class="um-fill" id="umFill" style="width:0%"></div></div>
+          <div class="um-nums"><span>0</span><span>Universe Meter</span><span>50,000</span></div>
+        </div>
+      </div>
+
+      <div class="params">
+        <div class="pg">
+          <label>Consciousness Layer</label>
+          <select id="p-layer">
+            <option value="jagrat">Jagrat — Waking (जाग्रत्)</option>
+            <option value="svapna">Svapna — Dream (स्वप्न)</option>
+            <option value="sushupti">Sushupti — Deep Sleep (सुषुप्ति)</option>
+            <option value="turiya">Turiya — Beyond (तुरीय)</option>
+          </select>
+        </div>
+        <div class="pg">
+          <label>Vedic Source</label>
+          <select id="p-veda">
+            <option value="rigveda">Ṛigveda (ऋग्वेद)</option>
+            <option value="samaveda">Sāmaveda (सामवेद)</option>
+            <option value="yajurveda">Yajurveda (यजुर्वेद)</option>
+            <option value="atharvaveda">Atharvaveda (अथर्ववेद)</option>
+          </select>
+        </div>
+        <div class="pg">
+          <label>Primary Raga</label>
+          <select id="p-raga">
+            <option>Bhairavī (भैरवी)</option><option>Yaman (यमन)</option>
+            <option>Bhairav (भैरव)</option><option>Darbari Kānaḍā (दरबारी)</option>
+            <option>Todi (तोड़ी)</option><option>Pūrvī (पूर्वी)</option>
+            <option>Mārwā (मारवा)</option><option>Kāfī (काफी)</option>
+            <option>Kīrwāṇī (किरवानी)</option><option>Bhairaṃś (भैरंश)</option>
+            <option>Khamaaj (खमाज)</option><option>Bihāg (बिहाग)</option>
+            <option>Bageshri (बागेश्री)</option><option>Kedar (केदार)</option>
+            <option>Māltī-Bihāg (मालती)</option><option>Śaṃkarā (शंकरा)</option>
+            <option>Mālkauns (मालकौंस)</option><option>Chandrakauṃś (चंद्रकौंस)</option>
+            <option>Bhūpāli (भूपाली)</option><option>Yaman Kalyāṇ (यमन कल्याण)</option>
+            <option>Charukesi (चारुकेशी)</option><option>Kalyāṇī (कल्याणी)</option>
+            <option>Nāṭabhairavī (नाटभैरवी)</option><option>Śuddha Sāveri (शुद्ध सावेरी)</option>
+            <option>Hindolam (हिंदोलम)</option><option>Karaharapriyā (खरहरप्रिया)</option>
+            <option>Harikāmbhoji (हरिकाम्भोजी)</option><option>Mechakalyāṇī (मेचकल्याणी)</option>
+          </select>
+        </div>
+        <div class="pg">
+          <label>Tāla (Rhythm)</label>
+          <select id="p-tala">
+            <option>Āditāla (8 beats)</option><option>Rupaka (6 beats)</option>
+            <option>Khaṇḍa Cāpu (5 beats)</option><option>Miśra Cāpu (7 beats)</option>
+            <option>Jhaptāl (10 beats)</option><option>Ektāl (12 beats)</option>
+            <option>Tīntāl (16 beats)</option><option>Dādra (6 beats)</option>
+            <option>Kaharwa (8 beats)</option><option>Rūpak (7 beats)</option>
+            <option>Dhrupad (4+4+4+4)</option><option>Dhamār (14 beats)</option>
+          </select>
+        </div>
+        <div class="pg">
+          <label>Primary Mudra</label>
+          <select id="p-mudra">
+            <option>Patāka (पताक)</option><option>Tripatāka (त्रिपताक)</option>
+            <option>Ardhacandra (अर्धचंद्र)</option><option>Arāla (अराल)</option>
+            <option>Mayūra (मयूर)</option><option>Muṣṭi (मुष्टि)</option>
+            <option>Padmakosha (पद्मकोश)</option><option>Alapadma (अलपद्म)</option>
+            <option>Sarpashīrsha (सर्पशीर्ष)</option><option>Mrigashīrsha (मृगशीर्ष)</option>
+            <option>Haṃsāsya (हंसास्य)</option><option>Shikhara (शिखर)</option>
+            <option>Kapiṭṭha (कपित्थ)</option><option>Śuchi (सूची)</option>
+            <option>Bhramara (भ्रमर)</option><option>Katakāmukha (कटकामुख)</option>
+            <option>Chatura (चतुर)</option><option>Mukula (मुकुल)</option>
+          </select>
+        </div>
+        <div class="pg">
+          <label>Bhāva (Emotion)</label>
+          <select id="p-bhava">
+            <option>Śṛṃgāra (Love / शृंगार)</option>
+            <option>Hāsya (Joy / हास्य)</option>
+            <option>Karuṇā (Compassion / करुणा)</option>
+            <option>Raudra (Fury / रौद्र)</option>
+            <option>Vīra (Heroism / वीर)</option>
+            <option>Bhayānaka (Fear / भयानक)</option>
+            <option>Bībhatsa (Disgust / बीभत्स)</option>
+            <option>Adbhuta (Wonder / अद्भुत)</option>
+            <option>Śānta (Peace / शांत)</option>
+          </select>
+        </div>
+        <div class="pg">
+          <label>Genre</label>
+          <select id="p-genre">
+            <option>Classical — Dhrupad</option>
+            <option>Classical — Khayal</option>
+            <option>Classical — Carnatic Kriti</option>
+            <option>Classical — Varnam</option>
+            <option>Semi-Classical — Thumri</option>
+            <option>Semi-Classical — Bhajan</option>
+            <option>Semi-Classical — Ghazal</option>
+            <option>Folklore — Kajri</option>
+            <option>Poetry — Shloka</option>
+            <option>Poetry — Stotra</option>
+            <option>Poetry — Mangalāshtaka</option>
+          </select>
+        </div>
+        <div class="pg">
+          <label>Theme Intention</label>
+          <textarea id="p-theme" placeholder="Optional: describe your theme, deity, or existential inquiry..."></textarea>
+        </div>
+      </div>
+
+      <button class="genbtn" id="genBtn" onclick="generateComposition()">
+        ✦ Generate Sacred Composition ✦
+      </button>
+
+      <div class="result" id="result">
+        <div class="r-id" id="r-id"></div>
+        <div class="rsec">
+          <div class="rsec-title">Sanskrit Verse — संस्कृत पद्य</div>
+          <span class="r-san" id="r-san"></span>
+          <span class="r-rom" id="r-rom"></span>
+        </div>
+        <div class="rsec">
+          <div class="rsec-title">Interpretation through <span id="r-layer-name"></span></div>
+          <div class="r-txt" id="r-interp"></div>
+        </div>
+        <div class="rsec">
+          <div class="rsec-title">Compositional Architecture</div>
+          <div class="r-txt" id="r-comp"></div>
+        </div>
+        <div class="rsec">
+          <div class="rsec-title">Vedic–Upanishadic Resonance</div>
+          <div class="r-txt" id="r-vedic"></div>
+        </div>
+        <div class="rsec">
+          <div class="rsec-title">Mudra Prescription & Karana Sequence</div>
+          <div class="r-txt" id="r-mudra"></div>
+        </div>
+        <div class="rtags" id="r-tags"></div>
+        <button class="savebtn" onclick="saveComposition()">⬇ Save Composition to Universe</button>
+      </div>
+
+      <!-- SAVED COMPOSITIONS -->
+      <div class="saved-sec" id="savedSec" style="display:none;">
+        <h3>✦ Saved Compositions — सङ्ग्रहीत रचनाएँ</h3>
+        <div class="saved-grid" id="savedGrid"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  नाद मुद्रा · Nāda Mudrā · Cultural Musings · AI-Powered Sanskrit Compositional Universe<br>
+  72 Melakarta Ragas × 12 Talas × 9 Bhavas × 4 Layers × 4 Vedas × 14 Genres = 72,576+ Unique Pathways
+</footer>
+
+</div><!-- .wrapper -->
+
+<script>
+/* ======================================
+   KNOWLEDGE DATA
+====================================== */
+const MUDRAS = [
+  {dev:'पताक',name:'Patāka',rom:'Patāka',desc:'Fingers together, thumb bent. Represents a flag, the sun, moonlight, water flow, forest. The most fundamental of all hastas.',tag:'Asamyuta'},
+  {dev:'त्रिपताक',name:'Tripatāka',rom:'Tripatāka',desc:'Ring finger bent down, others extended. Used for crown, tree, arrow, lightning, descent of Ganga.',tag:'Asamyuta'},
+  {dev:'अर्धपताक',name:'Ardhapātaka',rom:'Ardhapātaka',desc:'Index and middle extended, others folded. Represents a knife, paper, two-sided object.',tag:'Asamyuta'},
+  {dev:'कर्तरीमुख',name:'Kartarīmukha',rom:'Kartarīmukha',desc:'Index and middle spread apart (scissors). Separation, deer, lightning, corner of an eye.',tag:'Asamyuta'},
+  {dev:'मयूर',name:'Mayūra',rom:'Mayūra',desc:'Thumb touches ring finger, others extended. The peacock, wiping tears, vomiting — divine grace.',tag:'Asamyuta'},
+  {dev:'अर्धचंद्र',name:'Ardhachandra',rom:'Ardhacandra',desc:'Thumb extended from fist. Half-moon, waist-hold, beginning of namaskāra. Auspiciousness.',tag:'Asamyuta'},
+  {dev:'अराल',name:'Arāla',rom:'Arāla',desc:'Index finger bent, thumb bent — others straight. Holding a bow, drinking nectar, Saraswati.',tag:'Asamyuta'},
+  {dev:'मुष्टि',name:'Muṣṭi',rom:'Muṣṭi',desc:'All fingers folded inward with thumb on top. Grasping, holding, firmness of resolve, wrestlers.',tag:'Asamyuta'},
+  {dev:'शिखर',name:'Śikhara',rom:'Śikhara',desc:'Fist with thumb raised. Husband, Manmatha (Kāmadeva), bow, pillar. Masculine divine energy.',tag:'Asamyuta'},
+  {dev:'कपित्थ',name:'Kapiṭṭha',rom:'Kapiṭṭha',desc:'Thumb presses on middle of bent index. Lakshmi, Saraswati, holding a cymbals, churning.',tag:'Asamyuta'},
+  {dev:'पद्मकोश',name:'Padmakosha',rom:'Padmakosha',desc:'All fingers curved and spread like a lotus bud. Lotus flower, round fruit, abundance.',tag:'Asamyuta'},
+  {dev:'अलपद्म',name:'Alapadma',rom:'Alapadma',desc:'All fingers spread and waving like a full-bloom lotus. Sa swara, the prime note of creation.',tag:'Asamyuta'},
+  {dev:'सर्पशीर्ष',name:'Sarpashīrsha',rom:'Sarpashīrsha',desc:'Wrist bent with all fingers downward, slightly curved. Serpent\'s hood, sprinkling water, elephant trunk.',tag:'Asamyuta'},
+  {dev:'मृगशीर्ष',name:'Mrigashīrsha',rom:'Mrigashīrsha',desc:'Thumb and little finger touch, others extended. Deer face, calling someone, fear, lord\'s face.',tag:'Asamyuta'},
+  {dev:'हंसास्य',name:'Haṃsāsya',rom:'Haṃsāsya',desc:'Tips of all four fingers meet thumb. Swan\'s beak, fine writing, flower stalk, pearl necklace.',tag:'Asamyuta'},
+  {dev:'हंसपक्ष',name:'Haṃsapaksha',rom:'Haṃsapaksha',desc:'Four fingers joined and spread, thumb bent. Six seasons, combing hair, shooting arrow.',tag:'Asamyuta'},
+  {dev:'सन्दंश',name:'Sandaṃśa',rom:'Sandaṃśa',desc:'Tips of index and middle pinching. Picking flowers, ornaments, strings of an instrument.',tag:'Asamyuta'},
+  {dev:'मुकुल',name:'Mukula',rom:'Mukula',desc:'All fingers join at the tip. Lotus bud, eating, navel. The seed of all gesture.',tag:'Asamyuta'},
+  {dev:'सूची',name:'Śuchi',rom:'Śuchi',desc:'Index finger pointing upward from fist. Oneness, Brahman, the sun, needle. Divine singularity.',tag:'Asamyuta'},
+  {dev:'भ्रमर',name:'Bhramara',rom:'Bhramara',desc:'Index curls over thumb, middle and ring extended. The bee, butterfly, divine intoxication of love.',tag:'Asamyuta'},
+  {dev:'चतुर',name:'Chatura',rom:'Chatura',desc:'All fingers slightly bent and spread. Cleverness, saffron, small things, grace, water drops.',tag:'Asamyuta'},
+  {dev:'कटकामुख',name:'Katakāmukha',rom:'Katakāmukha',desc:'Index curled to thumb, others extended. Wearing a garland, pulling reins, Dha-swara, Sita, Rukmini.',tag:'Asamyuta'},
+  {dev:'त्रिशूल',name:'Triśūla',rom:'Triśūla',desc:'Thumb, index, middle extended. The trident of Shiva. Three Vedas, trinity, Trikona.',tag:'Asamyuta'},
+  {dev:'पताकाञ्जलि',name:'Añjali',rom:'Añjali',desc:'Both patāka hands pressed together at heart. Namaste, salutation, prayer. The ultimate greeting.',tag:'Samyuta'},
+];
+
+const KARANAS = [
+  {dev:'तालपुष्पपुट',name:'Talapuṣpapuṭa',desc:'The cupped-hands karāṇa invoking Brahma — a bowl of sacred blooms offered to the cosmos.'},
+  {dev:'वर्तित',name:'Vartita',desc:'The rotating-wrist karāṇa — circular energy of Vishnu\'s chakra spinning the wheel of dharma.'},
+  {dev:'वलित',name:'Valita',desc:'The turned karāṇa — body bends like a river finding its course through the landscape of existence.'},
+  {dev:'अपविद्ध',name:'Apaviddha',desc:'The thrown-apart karāṇa — limbs cast outward like Shiva\'s cosmic dance dissolving form.'},
+  {dev:'स्वस्तिक',name:'Svastika',desc:'The sacred cross karāṇa — arms crossing in the ancient symbol of auspiciousness and eternal return.'},
+  {dev:'मत्तल्लि',name:'Mattalli',desc:'The intoxicated-bee karāṇa — swaying with divine nectar as a bee lost in the lotus of devotion.'},
+  {dev:'अश्व',name:'Aśvakrāṃta',desc:'The horse-step karāṇa — powerful stride of the divine steed carrying Vishnu\'s avatāra across dharma.'},
+  {dev:'आक्षिप्त',name:'Ākṣipta',desc:'The cast-away karāṇa — total release, the soul abandoning ego into the ocean of Brahman.'},
+  {dev:'गरुड',name:'Garuḍa',desc:'The eagle-wing karāṇa — arms as Garuda\'s wings bearing Vishnu, transcending all earthly limitation.'},
+  {dev:'भ्रमरक',name:'Bhramaraka',desc:'The whirling karāṇa — spinning like a bee around the divine flower, the self circling the Self.'},
+  {dev:'चक्रमण्डल',name:'Chakramaṇḍala',desc:'The wheel-circle karāṇa — the sacred disk of Vishnu, chakra of time, perfect rotational dharma.'},
+  {dev:'उद्वृत्त',name:'Udvṛitta',desc:'The upward-turning karāṇa — prāṇa rising through suṣumṇā, kundalini ascending the sacred spine.'},
+  {dev:'विपरीत',name:'Viparīta',desc:'The reversed karāṇa — seeing with inner eye, all outward reality revealed as māyā, the great illusion.'},
+  {dev:'नितम्ब',name:'Nitamba',desc:'The hip-thrust karāṇa — earth energy anchored in mūlādhāra, divine feminine creative force of Shakti.'},
+  {dev:'अञ्चित',name:'Añcita',desc:'The bent-back karāṇa — the deep bow of complete surrender, Arjuna before Krishna at Kurukshetra.'},
+  {dev:'कुञ्चित',name:'Kuñcita',desc:'The curled-toes karāṇa — earth connection at the very tips, grounded yet poised for transcendence.'},
+  {dev:'रेचित',name:'Recita',desc:'The expelled karāṇa — breath released completely, the out-breath as surrender to Brahman-prāṇa.'},
+  {dev:'पाद-अपविद्ध',name:'Pādāpaviddha',desc:'The leg-throw karāṇa — casting the limb into space like Indra\'s thunderbolt, decisive divine action.'},
+];
+
+const SWARAS = [
+  {note:'Sa',dev:'स',full:'षड्ज',icon:'🦚',god:'Brahma',freq:'C (240Hz)',col:'#22C55E',
+   veda:'The cosmic foundation note. Sa = षड्ज means "born of six" — navel, chest, throat, palate, nose and head all resonate. Peacock cries at dawn.',
+   upanishad:'Chhandogya Upanishad places Sa at creation — Brahma\'s first syllable, the primordial Om from which all existence unfolds.'},
+  {note:'Ri',dev:'रि',full:'ऋषभ',icon:'🐂',god:'Agni',freq:'D (270Hz)',col:'#EF4444',
+   veda:'The bull\'s call — Ri = ṛṣabha, "the great bull". Associated with sunrise Agni, the sacrificial fire that transforms gross to subtle.',
+   upanishad:'Bṛhadāraṇyaka Upanishad: Agni\'s fire-voice rising — the second akṣara emerging from Brahman\'s prāṇa as cosmic respiration.'},
+  {note:'Ga',dev:'ग',full:'गान्धार',icon:'🐐',god:'Rudra',freq:'E (300Hz)',col:'#F59E0B',
+   veda:'From Gāndhāra — the region of Gandhara. Goat sound. Associated with Rudra\'s transformative power. The mid-morning note of awakening awareness.',
+   upanishad:'Kaṭha Upanishad — Ga as the voice of Yama revealing Naciketa\'s truth: the Self is smaller than the smallest, greater than the greatest.'},
+  {note:'Ma',dev:'म',full:'मध्यम',icon:'🕊️',god:'Vishnu',freq:'F (320Hz)',col:'#FFFFFF',
+   veda:'Madhyama — the middle note. Dove\'s song. Vishnu\'s centring grace. Ma is the balancing swara between lower and upper registers of existence.',
+   upanishad:'Māṇḍūkya Upanishad — the four mātrā of AUM: A=Jagrat, U=Svapna, M=Sushupti, Silence=Turiya. Ma dwells at the threshold.'},
+  {note:'Pa',dev:'प',full:'पञ्चम',icon:'🐦',god:'Narayana',freq:'G (360Hz)',col:'#EAB308',
+   veda:'Pañcama — the fifth. Koil (cuckoo) bird. Pa is self-generated (svayambhu) — it cannot be modified with vikṛiti. Pure, eternal harmonic.',
+   upanishad:'Taittirīya Upanishad — Pa as the ānandamaya kosha, the bliss-sheath of Brahman, where the individual merges with the universal.'},
+  {note:'Dha',dev:'ध',full:'धैवत',icon:'🐴',god:'Ganesha',freq:'A (400Hz)',col:'#1E40AF',
+   veda:'Dhaivata — divine station. Horse\'s neigh. The penultimate note before return. Dha resonates through the ājñā chakra, the third eye.',
+   upanishad:'Muṇḍaka Upanishad — Dha as the arrow (the soul) aimed at Brahman as the target. Knowing the archer, knowing the bow, knowing the mark.'},
+  {note:'Ni',dev:'नि',full:'निषाद',icon:'🐘',god:'Saraswati',freq:'B (450Hz)',col:'#7C3AED',
+   veda:'Niṣāda — the one who sits (nisīdati). Elephant\'s trumpet. The leading tone, pulling all back to Sa. Saraswati\'s wisdom-note, highest of all.',
+   upanishad:'Chhandogya Upanishad — Ni as Udgītha, the sacred chant rising to its apex before the great dissolution back into the primordial Sa-silence.'},
+];
+
+const RAGAS=[
+  {name:'Bhairavī',dev:'भैरवी',type:'Hindustani · Bhairav Thaat',aroh:'Sa Ri♭ Ga♭ Ma Pa Dha♭ Ni♭ Ṡa',time:'Sunrise · Early Dawn',rasa:'Karuṇā · Śṛṃgāra',desc:'Queen of all ragas. Six komal swaras descending from fullness to poignant yearning. Traditionally sung last in a concert as the final farewell.'},
+  {name:'Yaman',dev:'यमन',type:'Hindustani · Kalyan Thaat',aroh:'Ni Re Ga Ma♯ Pa Dha Ni Ṡa',time:'First quarter of night',rasa:'Śṛṃgāra · Śānta',desc:'The raga of beauty and devotion. Sharp Ma (teevra) creates its characteristic longing. Associated with Devi Lakshmi and auspicious evening prayers.'},
+  {name:'Bhairav',dev:'भैरव',type:'Hindustani · Bhairav Thaat',aroh:'Sa Ri♭ Ga Ma Pa Dha♭ Ni Ṡa',time:'Early Morning (Prātaḥ)',rasa:'Bhakti · Vairāgya · Adbhuta',desc:'The raga of dawn austerity. Two komal swaras create a grave, meditative quality. Shiva\'s own raga, heard in silence before the world awakens.'},
+  {name:'Darbari Kānaḍā',dev:'दरबारी',type:'Hindustani · Asavari Thaat',aroh:'Sa Re Ga♭ Ma Pa Dha♭ Ni♭ Ṡa',time:'Late Night (Niśā)',rasa:'Karuṇā · Vīra · Gāmbhīrya',desc:'Raga of imperial courts. Gravity and dignity. Tansen composed it for Akbar. Slow and meditative, plumbing the depths of the night consciousness.'},
+  {name:'Todi',dev:'तोड़ी',type:'Hindustani · Todi Thaat',aroh:'Sa Ri♭ Ga♭ Ma♯ Pa Dha♭ Ni Ṡa',time:'Late Morning',rasa:'Karuṇā · Bhakti',desc:'Raga of supreme complexity. Four komal swaras plus teevra Ma. Known to charm deer with its otherworldly pathos. Profound concentration needed.'},
+  {name:'Kāfī',dev:'काफी',type:'Hindustani · Kafi Thaat',aroh:'Sa Re Ga♭ Ma Pa Dha Ni♭ Ṡa',time:'Midnight',rasa:'Śṛṃgāra · Vilambita',desc:'Raga of the eternal longing (viraha). Two komal swaras. Basis of most thumri and many folk songs. Krishna\'s raga — the call of the flute at midnight.'},
+  {name:'Bhūpāli',dev:'भूपाली',type:'Hindustani · Kalyan Thaat',aroh:'Sa Re Ga Pa Dha Ṡa',time:'Early Night',rasa:'Śṛṃgāra · Praśānta',desc:'Pentatonic raga of evening serenity. Only five notes (odava-odava). Pure, celestial, invoking the dusk calm before the night\'s great silence descends.'},
+  {name:'Bageshri',dev:'बागेश्री',type:'Hindustani · Kafi Thaat',aroh:'Sa Re Ga♭ Ma Dha Ni♭ Ṡa',time:'Midnight',rasa:'Viraha · Śṛṃgāra',desc:'The feminine raga of deep nocturnal longing. Avoids Pa entirely. Rainy-season emotions. Radha awaiting Krishna at the forest edge under storm clouds.'},
+  {name:'Kedar',dev:'केदार',type:'Hindustani · Kalyan Thaat',aroh:'Sa Ma Pa Ma♯ Pa Dha Pa Ṡa',time:'Evening',rasa:'Bhakti · Adbhuta',desc:'Raga of mountains and Shiva. Uses both Ma variants. Vaishnavite bhajans flourish here. The soul climbing the peaks of devotion toward the infinite.'},
+  {name:'Mālkauns',dev:'मालकौंस',type:'Hindustani · Bhairavi Thaat',aroh:'Sa Ga♭ Ma Dha♭ Ni♭ Ṡa',time:'Midnight',rasa:'Vīra · Raudra · Ādhyātmika',desc:'Pentatonic raga of cosmic power. No Re, no Pa. Pure strength and spiritual intensity. Hanuman\'s raga. Said to invoke warrior spirits and divine protection.'},
+  {name:'Chandrakauṃś',dev:'चंद्रकौंस',type:'Hindustani · Bhairavi Thaat',aroh:'Sa Ga♭ Ma Dha♭ Ni♭ Ṡa',time:'Midnight',rasa:'Adbhuta · Śānta',desc:'Moon raga — similar to Malkauns but Dha♭ gives moonlit quality. Mystery and divine revelation. The soul discovering itself in the cave of the heart.'},
+  {name:'Kalyāṇī',dev:'कल्याणी',type:'Carnatic · 65th Melakarta',aroh:'S R G M♯ P D N S̈',time:'Evening',rasa:'Śānta · Bhakti · Śṛṃgāra',desc:'Carnatic counterpart of Yaman. Pure, auspicious, complete. The 65th Melakarta containing all six swaras with teevra Ma. Majestic evening splendour.'},
+  {name:'Charukesi',dev:'चारुकेशी',type:'Carnatic · 26th Melakarta',aroh:'S R G M P D♭ N♭ S̈',time:'Evening',rasa:'Bhakti · Viraha',desc:'26th Melakarta — Major Pa group with komal Dha and Ni. Unique combination creating intense devotional longing. Lord Murugan\'s grace in sonic form.'},
+  {name:'Hindolam',dev:'हिंदोलम',type:'Carnatic · Equivalent',aroh:'S G♭ M D♭ N♭ S̈',time:'Early Morning',rasa:'Śānta · Bhakti',desc:'Five-note raga of ethereal beauty. No Sa (except as base), no Re, no Pa. Swings like a pendulum — hindola means swing. Absolute devotional surrender.'},
+];
+
+const GENRES={
+  classical:{
+    intro:'शास्त्रीय संगीत — Classical Music preserves the deepest grammar of Indian musical thought. Rooted in the Nāṭyaśāstra and Sangīta Ratnākara, it demands rigorous rāga-adhyāya (raga study) and tāla-sādhanā (rhythmic practice). Two great traditions: Hindustani (North) and Carnatic (South).',
+    forms:[
+      {name:'Dhrupad',dev:'ध्रुपद',desc:'Oldest surviving classical form. Four parts: Sthāyi-Antara-Sañcāri-Ābhog. Alāpa without tāla, then Dhrupad with Pakhawaj. Supreme gravity.'},
+      {name:'Khayal',dev:'ख्याल',desc:'Imagination (khayāl = imagination). Vilambit and Drut sections. Greatest scope for individual expression within rāga grammar. Modern mainstream.'},
+      {name:'Carnatic Kriti',dev:'कृति',desc:'Three-part form: Pallavi-Anupallavi-Charaṇam. Devotional texts. Saint-composers Tyāgarāja, Muttusvāmi Dīkṣitar, Śyāmā Śāstri form the Trinity.'},
+      {name:'Varnam',dev:'वर्णम',desc:'Technical masterpiece combining all elements: pallavi, anupallavi, muktāyi svara, charaṇam, ettugaḍa svara. The complete grammar of Carnatic in one form.'},
+      {name:'Alāp',dev:'आलाप',desc:'The slow unfolding of rāga without rhythm. Rāga body revealed note by note, phrase by phrase, like dawn light entering a room of consciousness.'},
+      {name:'Tarana',dev:'तराना',desc:'North Indian vocal form using meaningless syllables (ta na nom dir): rhythmic acrobatics revealing the pure delight of sound beyond semantic meaning.'},
+    ]
+  },
+  semiclass:{
+    intro:'उप-शास्त्रीय संगीत — Semi-Classical forms bridge the formal world of rāga and the emotional world of folk. They allow greater poetic freedom while maintaining rāga identity. The heart sings in semi-classical what the intellect constructs in classical.',
+    forms:[
+      {name:'Thumri',dev:'ठुमरी',desc:'The singing of love and separation. Based on Kafi, Khamaj, Pilu, Bhairavi. Radha-Krishna devotional poetry. Greatest emotional expressiveness of any form.'},
+      {name:'Dadra',dev:'दादरा',desc:'Six-beat rhythmic form lighter than Thumri. Romantic lyrics with Braj Bhasha poetry. Quick, playful, teasing — the flirtatious side of devotional love.'},
+      {name:'Bhajan',dev:'भजन',desc:'Devotional song in any language. Simple melodic structure, deeply felt. Mīrābāī, Kabīr, Sūrdās — saints who sang the divine into the marketplace.'},
+      {name:'Ghazal',dev:'ग़ज़ल',desc:'Urdu poetic form. Each sher (couplet) complete in itself. Maṭla opens, Maqtā closes with the poet\'s name. Intoxication and longing in perfect literary form.'},
+      {name:'Chaiti',dev:'चैती',desc:'Spring songs of Chaitra month (March-April). Tinged with viraha (separation). Sacred to Rama — "Raghupati Raghav" ancestral chain. Festive yet bittersweet.'},
+      {name:'Kajrī',dev:'कजरी',desc:'Monsoon songs — women\'s genre from Varanasi and Mirzapur. Rain as metaphor for longing. Braj Bhasha lyrics. Thumri-adjacent, earthy, rooted in seasons.'},
+    ]
+  },
+  folklore:{
+    intro:'लोक संगीत — Folk Music is the oldest living library of Indian civilization. Before Nāṭyaśāstra was codified, the people were already singing. Every region, every season, every ritual has its sonic body.',
+    forms:[
+      {name:'Baul',dev:'বাউল',desc:'Bengali mystic minstrel tradition. "The wind of the mad" — ecstatic songs seeking the Man of the Heart (moner mānus). Guitar-like ektārā. Anti-caste, direct.'},
+      {name:'Lavanī',dev:'लावणी',desc:'Maharashtrian dance-song. Dholak and Tasha driven. Shringara rasa predominant. Women\'s strength and sensuality celebrated. Folk-classical bridge form.'},
+      {name:'Viraha Geet',dev:'विरह गीत',desc:'Songs of separation — universal Indian folk emotion. The longing of the separated soul. Sung at weddings, departures, seasons of absence. Primordial grief-joy.'},
+      {name:'Sohar',dev:'सोहर',desc:'Birth songs of Eastern UP and Bihar. Welcome the new soul. Goddess Shashthi invoked. Ancient maternal wisdom passed woman to woman across generations.'},
+      {name:'Pallavi',dev:'पल्लवी',desc:'South Indian folk pallavi — distinct from Carnatic. Regional languages, local deities, agricultural cycles. The vine-sprout of memory, blooming with each generation.'},
+      {name:'Tribal Geet',dev:'आदिवासी गीत',desc:'Indigenous song traditions pre-dating all classical systems. Santali, Gond, Bhil music — direct ancestor of all Indian music. Forest wisdom in sonic form.'},
+    ]
+  },
+  poetry:{
+    intro:'काव्य — Sanskrit Poetry represents the pinnacle of human aesthetic and spiritual expression. Governed by alaṃkāra-śāstra (science of figures), chandas (metre), and dhvani (resonance theory), it achieves what prose cannot: liberation through beauty.',
+    forms:[
+      {name:'Śloka',dev:'श्लोक',desc:'The anustubh (8+8+8+8 syllables) metre. Foundation of epic Sanskrit. Vālmīki\'s first śloka arose from grief (śoka) — sorrow birthed the first poem.'},
+      {name:'Stotra',dev:'स्तोत्र',desc:'Hymn of praise. Śaṅkara\'s Soundaryalaharī, Mahimnastotra, Lalitāsahasranāma. Hundred, thousand names of the divine as sonic sculpture.'},
+      {name:'Mangalāshtaka',dev:'मङ्गलाष्टक',desc:'Eight auspicious verses. Used in weddings, festivals, ritual inaugurations. Eight = completeness (aṣṭa-dikpāla, ashtamangala). Cosmic auspiciousness invoked.'},
+      {name:'Dhvani Kāvya',dev:'ध्वनि काव्य',desc:'The theory of resonance (dhvani) — the suggested meaning (vyañjanā) superior to literal. Ānandavardhana\'s Dhvanyāloka: poetry is the body, suggestion is the soul.'},
+      {name:'Rīti Kāvya',dev:'रीति काव्य',desc:'The theory of style. Vāmana\'s four rītis: Vaidarbhī (smooth), Gauḍī (complex), Pāñcālī (balanced), Lāṭī (simple). Each rāga has its natural rīti.'},
+      {name:'Mārga vs Deśī',dev:'मार्ग और देशी',desc:'Pan-Indian classical (mārga) vs regional vernacular (deśī). Bharata\'s distinction: mārga music spiritually elevates, deśī entertains. Both necessary, both sacred.'},
+    ]
+  }
+};
+
+const LAYER_COLORS={jagrat:'var(--jagrat)',svapna:'var(--svapna)',sushupti:'var(--sushupti)',turiya:'var(--turiya)'};
+const LAYER_NAMES={jagrat:'Jagrat — जाग्रत् (Waking Consciousness)',svapna:'Svapna — स्वप्न (Dream Consciousness)',sushupti:'Sushupti — सुषुप्ति (Deep Sleep Consciousness)',turiya:'Turiya — तुरीय (Transcendent Consciousness)'};
+const VEDA_NAMES={rigveda:'Ṛigveda — ऋग्वेद',samaveda:'Sāmaveda — सामवेद',yajurveda:'Yajurveda — यजुर्वेद',atharvaveda:'Atharvaveda — अथर्ववेद'};
+
+/* ======================================
+   STATE
+====================================== */
+let curLayer='jagrat', curVeda='rigveda', curTab='mudras';
+let compTotal=0, lastResult=null;
+
+/* ======================================
+   NAVIGATION
+====================================== */
+function setLayer(l,el){
+  curLayer=l;
+  document.querySelectorAll('.lb').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('p-layer').value=l;
+  renderPanel();
+}
+function setVeda(v,el){
+  curVeda=v;
+  document.querySelectorAll('.vbtn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('p-veda').value=v;
+  renderPanel();
+}
+function setTab(t,el){
+  curTab=t;
+  document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  renderPanel();
+}
+
+/* ======================================
+   PANEL RENDERER
+====================================== */
+function renderPanel(){
+  const p=document.getElementById('panel');
+  p.innerHTML='<div class="loading"><div class="spin-ring"></div><span class="spin-txt">स्मरण…</span></div>';
+  setTimeout(()=>{
+    try{
+      switch(curTab){
+        case'mudras': p.innerHTML=renderMudras(); break;
+        case'karanas': p.innerHTML=renderKaranas(); break;
+        case'swaras': p.innerHTML=renderSwaras(); break;
+        case'ragas': p.innerHTML=renderRagas(); break;
+        case'classical': p.innerHTML=renderGenre('classical'); break;
+        case'semiclass': p.innerHTML=renderGenre('semiclass'); break;
+        case'folklore': p.innerHTML=renderGenre('folklore'); break;
+        case'poetry': p.innerHTML=renderGenre('poetry'); break;
+        default: p.innerHTML='<p>Tab content loading...</p>';
+      }
+    }catch(e){p.innerHTML='<p style="color:var(--saffron)">Rendering... '+e.message+'</p>';}
+  },200);
+}
+
+function layerBadge(){
+  return `<span class="kh-layer" style="color:${LAYER_COLORS[curLayer]};border-color:${LAYER_COLORS[curLayer]}">${LAYER_NAMES[curLayer]}</span>`;
+}
+
+function getLayerInterpMudra(mudra){
+  const interps={
+    jagrat:`In the waking state, ${mudra.name} is performed physically — fingertips precisely positioned, the body anchoring meaning in visible gesture. Every practitioner sees the same shape.`,
+    svapna:`In the dream dimension, ${mudra.name} appears in visions and inner movement — the dreaming mind recognises its form as symbolic of deeper realities beyond waking appearance.`,
+    sushupti:`In deep sleep, ${mudra.name} exists as pure energy pattern — the physical gesture dissolved into prakriti, leaving only the vibrational imprint in the causal body (kāraṇa śarīra).`,
+    turiya:`Beyond all states, ${mudra.name} IS consciousness itself taking temporary form. Mudra and mudrist are non-different. The gesture was always the gesturing, never a gesture performed by someone.`
+  };
+  return interps[curLayer];
+}
+
+function getVedaContextMudra(){
+  const v={
+    rigveda:'In the Rigvedic tradition, mudras were used by priests during yajña to channel mantra-power into physical form. Each hasta became a vessel of Agni\'s transformative fire.',
+    samaveda:'Sāmaveda singers used specific hand positions during udgītha (chant). The raised hand stabilised the voice at Sa; the cupped hand invoked the resonance of higher octaves.',
+    yajurveda:'Yajurveda rituals prescribed exact mudra sequences for each sacrificial action. The right hand (dakṣiṇa) held sacred, left (savya) for preparatory gestures.',
+    atharvaveda:'Atharvaveda mudras were employed in healing and protection rites. Specific hasta combinations invoked Ashvins (divine physicians) and Rudra\'s medicinal plants.'
+  };
+  return v[curVeda];
+}
+
+/* ======================================
+   MUDRAS PANEL
+====================================== */
+function renderMudras(){
+  let h=`<div class="kh">
+    <h2>Hasta Mudra — हस्त मुद्रा</h2>
+    <span class="kh-dev">मुद्राः — Seal · Symbol · Gesture</span>
+    <span class="kh-sub">${VEDA_NAMES[curVeda]} perspective on the 24 Asamyuta Hastas of Nāṭyaśāstra</span>
+    ${layerBadge()}
+  </div>
+  <div class="vblock">
+    <span class="vb-san">मुदं राति ददाति इति मुद्रा</span>
+    <span class="vb-rom">mudam rāti dadāti iti mudrā</span>
+    <span class="vb-mean">"That which gives ultimate joy (ānanda) is called Mudrā" — the gesture is not representation but transmission of divine bliss-consciousness.</span>
+  </div>
+  <div class="infoblock"><h3>Vedic–Upanishadic Context</h3><p>${getVedaContextMudra()}</p></div>
+  <div class="gcards">`;
+  MUDRAS.forEach(m=>{
+    h+=`<div class="gcard" onclick="showMudraDetail(this,'${m.name.replace(/'/g,"\\'")}')">
+      <span class="gc-dev">${m.dev}</span>
+      <span class="gc-name">${m.name}</span>
+      <span class="gc-rom">${m.rom}</span>
+      <div class="gc-desc">${m.desc}</div>
+      <span class="gc-tag">${m.tag}</span>
+    </div>`;
+  });
+  h+=`</div>
+  <div class="infoblock" style="margin-top:16px">
+    <h3>Layer Interpretation — ${LAYER_NAMES[curLayer]}</h3>
+    <p>${getLayerInterpMudra(MUDRAS[0])}</p>
+  </div>`;
+  return h;
+}
+
+/* ======================================
+   KARANAS PANEL
+====================================== */
+function renderKaranas(){
+  let h=`<div class="kh">
+    <h2>Karaṇas — कारणानि</h2>
+    <span class="kh-dev">108 Sacred Dance Transitions of Nāṭyaśāstra</span>
+    <span class="kh-sub">${VEDA_NAMES[curVeda]} · Tandava Lakṣaṇa (Chapter 4) · ${LAYER_NAMES[curLayer]}</span>
+    ${layerBadge()}
+  </div>
+  <div class="vblock">
+    <span class="vb-san">करणं पादहस्तस्य तथा कट्यास्तु संयुतम् ।<br>चेष्टितं तद्विजानीयात् करणं नाट्यशास्त्रतः ॥</span>
+    <span class="vb-rom">karaṇaṃ pādahastasya tathā kaṭyāstu saṃyutam | ceṣṭitaṃ tadvijānīyāt karaṇaṃ nāṭyaśāstrataḥ ||</span>
+    <span class="vb-mean">"The coordinated movement of feet, hands, and hips together — this is to be known as Karaṇa according to Nāṭyaśāstra." — Bharatamuni</span>
+  </div>`;
+  const layerMeaning={
+    jagrat:'In Jagrat, Karanas are physical choreographic units — measurable, teachable, transmittable through parampara (guru-disciple lineage). The 108 body-positions visible to all.',
+    svapna:'In Svapna, Karanas appear as archetypal movements arising spontaneously in meditation — the body knowing its cosmic vocabulary without instruction, pure symbolic gesture.',
+    sushupti:'In Sushupti, the 108 Karanas dissolve into undifferentiated movement-consciousness (cetanā). No individual Karana remains — only the infinite dance-potential of Nataraja.',
+    turiya:'In Turiya, each Karana IS Shiva dancing the universe into and out of existence. There is no dancer, no dance — only the endless, groundless, joyful movement that IS Brahman.'
+  };
+  h+=`<div class="infoblock"><h3>${LAYER_NAMES[curLayer]}</h3><p>${layerMeaning[curLayer]}</p></div>
+  <div class="gcards">`;
+  KARANAS.forEach(k=>{
+    h+=`<div class="gcard">
+      <span class="gc-dev">${k.dev}</span>
+      <span class="gc-name">${k.name}</span>
+      <div class="gc-desc">${k.desc}</div>
+    </div>`;
+  });
+  h+=`</div>
+  <div class="infoblock">
+    <h3>108 — The Sacred Number</h3>
+    <p>108 Karanas mirror: 108 Upanishads, 108 beads of the mālā, 108 names of the divine, the distance Earth-Sun as multiple of Sun's diameter, the sacred geometry of all existence. Bharata chose 108 not arbitrarily but as the complete vocabulary of embodied consciousness in motion.</p>
+  </div>`;
+  return h;
+}
+
+/* ======================================
+   SWARAS PANEL
+====================================== */
+function renderSwaras(){
+  let h=`<div class="kh">
+    <h2>Sapta Svarāḥ — सप्त स्वराः</h2>
+    <span class="kh-dev">The Seven Sacred Tones of the Cosmos</span>
+    <span class="kh-sub">${VEDA_NAMES[curVeda]} · Svara-Brahman — Sound as the Body of the Absolute</span>
+    ${layerBadge()}
+  </div>
+  <div class="vblock">
+    <span class="vb-san">सा रि ग म प ध नि — सप्तस्वर ब्रह्म<br>नादो ब्रह्म परं ज्ञेयं — नाद एव परं पदम्</span>
+    <span class="vb-rom">sā ri ga ma pa dha ni — saptasvara brahma | nādo brahma paraṃ jñeyaṃ — nāda eva paraṃ padam</span>
+    <span class="vb-mean">"The seven swaras are Brahman. Nāda (sound) is the supreme Brahman to be known — Nāda alone is the highest state." — Nādabindu Upanishad</span>
+  </div>
+  <div class="swgrid">`;
+  SWARAS.forEach(s=>{
+    h+=`<div class="swcard" style="color:${s.col};border-color:${s.col}40;" onclick="showSwaraDetail('${s.note}')">
+      <span class="sw-note">${s.note}</span>
+      <span class="sw-dev">${s.dev}</span>
+      <span class="sw-full">${s.full}</span>
+      <span class="sw-icon">${s.icon}</span>
+      <span class="sw-god">${s.god}</span>
+      <span class="sw-freq">${s.freq}</span>
+    </div>`;
+  });
+  h+=`</div><div id="swara-detail"></div>`;
+  
+  const layerSwara={
+    jagrat:'In the waking state, swaras are heard as physical sound vibrations — measurable frequencies causing sympathetic resonance in the physical body. Each note is an acoustic event.',
+    svapna:'In the dream state, swaras appear as coloured lights and inner visions — each note has its synesthetic dimension, painting the dreamscape with its particular consciousness-hue.',
+    sushupti:'In deep sleep, swaras return to nāda — undifferentiated primordial sound-potential. All seven collapse into the hum of AUM vibrating in the causal body.',
+    turiya:'In Turiya, the distinction between hearer and heard dissolves. The swara IS the consciousness experiencing it. Sound and silence are recognized as one movement of Brahman.'
+  };
+  h+=`<div class="infoblock"><h3>${LAYER_NAMES[curLayer]}</h3><p>${layerSwara[curLayer]}</p></div>`;
+  
+  const vedaSwara={
+    rigveda:'Rigveda uses Udātta (raised), Anudātta (lowered), and Svarita (combined) tones in Vedic chanting — the original three-tone system from which the seven swaras evolved.',
+    samaveda:'Sāmaveda explicitly maps seven svaras to seven Sāma tones: Prathama, Dvitīya, Tṛtīya, Caturtha, Mandra, Atisvarya, Kruṣṭa — the complete gamut of sacred chant.',
+    yajurveda:'Yajurvedic recitation uses two tones (Udātta-Anudātta) in ritual formulae. The adhvaryu priest chants yamāpya (medium pace), structuring sacrifice through sonic precision.',
+    atharvaveda:'Atharvaveda employs all seven svaras in healing incantations. Specific notes invoke specific deities: Sa=Brahma, Ri=Agni, Ga=Rudra, Ma=Vishnu — the sonic deity map.'
+  };
+  h+=`<div class="infoblock"><h3>${VEDA_NAMES[curVeda]} · Svara Tradition</h3><p>${vedaSwara[curVeda]}</p></div>`;
+  return h;
+}
+
+/* ======================================
+   RAGAS PANEL
+====================================== */
+function renderRagas(){
+  let h=`<div class="kh">
+    <h2>Rāga Darśana — राग दर्शन</h2>
+    <span class="kh-dev">Melodic Frameworks of Consciousness</span>
+    <span class="kh-sub">${VEDA_NAMES[curVeda]} · 72 Melakarta · Rasa-Bhāva Theory · ${LAYER_NAMES[curLayer]}</span>
+    ${layerBadge()}
+  </div>
+  <div class="vblock">
+    <span class="vb-san">रञ्जयति इति रागः — यो ऽसौ ध्वनिविशेषस्तु स्वरवर्णविभूषितः<br>रञ्जको जनचित्तानां स रागः कथितो बुधैः</span>
+    <span class="vb-rom">rañjayati iti rāgaḥ | yo'sau dhvaniviśeṣastu svaravarṇavibhūṣitaḥ | rañjako janacittānāṃ sa rāgaḥ kathito budhaiḥ</span>
+    <span class="vb-mean">"That which colours (rañjayati) the mind — that specific sound-form adorned with notes and colours, which gives delight to the hearts of people — that is called Rāga by the wise."</span>
+  </div>
+  <div class="ragagrid">`;
+  RAGAS.forEach(r=>{
+    h+=`<div class="ragacard">
+      <div class="raga-name">${r.name}</div>
+      <span class="raga-dev">${r.dev}</span>
+      <div class="raga-type">${r.type}</div>
+      <span class="raga-aroh">${r.aroh}</span>
+      <div class="raga-time">⏰ ${r.time}</div>
+      <div class="raga-rasa">Rasa: ${r.rasa}</div>
+      <div class="gc-desc" style="margin-top:8px">${r.desc}</div>
+    </div>`;
+  });
+  h+=`</div>`;
+  
+  const layerRaga={
+    jagrat:'In Jagrat, a raga is a specific melodic framework — a set of rules about which notes to use, which to emphasise, in what sequence to approach them. The cognitive grammar of Indian music.',
+    svapna:'In Svapna, a raga is a living being (rāgī = one who colours) — ancient, ensouled, appearing in inner vision as a specific deity or natural phenomenon. Raga-dhyana (raga-meditation).',
+    sushupti:'In Sushupti, all ragas dissolve back into the primordial Nāda. The distinctions — Bhairav from Bhairavi, Todi from Multani — are seen as ripples on the one infinite ocean of sound.',
+    turiya:'In Turiya, each raga IS a face of the Absolute. Bhairav IS Shiva. Bhairavi IS Shakti. Yaman IS Lakshmi. The raga does not represent the deity — it is the deity manifesting as pure sound-consciousness.'
+  };
+  h+=`<div class="infoblock"><h3>Rāga through ${LAYER_NAMES[curLayer]}</h3><p>${layerRaga[curLayer]}</p></div>`;
+  return h;
+}
+
+/* ======================================
+   GENRE PANEL
+====================================== */
+function renderGenre(key){
+  const g=GENRES[key];
+  const titles={classical:'Śāstrīya Saṃgīta — शास्त्रीय संगीत',semiclass:'Upa-Śāstrīya — उप-शास्त्रीय',folklore:'Loka Saṃgīta — लोक संगीत',poetry:'Kāvya Śāstra — काव्य शास्त्र'};
+  const devs={classical:'Classical Music',semiclass:'Semi-Classical',folklore:'Folk Music',poetry:'Sanskrit Poetry'};
+  let h=`<div class="kh">
+    <h2>${titles[key]}</h2>
+    <span class="kh-dev">${devs[key]}</span>
+    <span class="kh-sub">${VEDA_NAMES[curVeda]} · ${LAYER_NAMES[curLayer]}</span>
+    ${layerBadge()}
+  </div>
+  <div class="infoblock"><h3>Overview</h3><p class="highlight">${g.intro}</p></div>
+  <div class="gcards">`;
+  g.forms.forEach(f=>{
+    h+=`<div class="gcard">
+      <span class="gc-dev">${f.dev}</span>
+      <span class="gc-name">${f.name}</span>
+      <div class="gc-desc">${f.desc}</div>
+    </div>`;
+  });
+  h+=`</div>`;
+  
+  const vedaGenre={
+    rigveda:'Rigvedic hymns (sūktas) are the prototype of all Sanskrit poetry and song — arṣa metres like gāyatrī, anustubh, triṣtubh establishing the original prosodic grammar.',
+    samaveda:'Sāmaveda IS music — its 1875 mantras (75 unique) are all sung texts. The world\'s first songbook, establishing rāga-equivalents, melodic progressions, ornaments.',
+    yajurveda:'Yajurvedic ritual song gave birth to classical form — the progression from stobha (seed syllable) to full mantra parallels the progression from ālāp to bandish.',
+    atharvaveda:'Atharvaveda folk traditions are the direct ancestors of folklore and semi-classical forms — healing songs, seasonal songs, marriage rites feeding into living folk music.'
+  };
+  h+=`<div class="infoblock"><h3>${VEDA_NAMES[curVeda]} Connection</h3><p>${vedaGenre[curVeda]}</p></div>`;
+  return h;
+}
+
+/* ======================================
+   SWARA DETAIL
+====================================== */
+function showSwaraDetail(note){
+  const s=SWARAS.find(x=>x.note===note);
+  if(!s)return;
+  document.getElementById('swara-detail').innerHTML=`
+    <div class="vblock" style="border-left-color:${s.col}">
+      <span class="vb-san" style="color:${s.col}">${s.dev} — ${s.full} (${s.note})</span>
+      <span class="vb-rom">Frequency: ${s.freq} · Associated with ${s.god} · Animal: ${s.icon}</span>
+      <span class="vb-mean"><strong>Vedic:</strong> ${s.veda}</span>
+      <span class="vb-mean" style="margin-top:8px;display:block"><strong>Upanishadic:</strong> ${s.upanishad}</span>
+    </div>`;
+}
+
+/* ======================================
+   COMPOSITION GENERATOR
+====================================== */
+async function generateComposition(){
+  const btn=document.getElementById('genBtn');
+  const result=document.getElementById('result');
+  btn.disabled=true;
+  btn.textContent='✦ Invoking the Nāda... ✦';
+  result.classList.remove('show');
+
+  const params={
+    layer: document.getElementById('p-layer').value,
+    veda: document.getElementById('p-veda').value,
+    raga: document.getElementById('p-raga').value,
+    tala: document.getElementById('p-tala').value,
+    mudra: document.getElementById('p-mudra').value,
+    bhava: document.getElementById('p-bhava').value,
+    genre: document.getElementById('p-genre').value,
+    theme: document.getElementById('p-theme').value||'existential liberation through nāda'
+  };
+
+  const prompt=`You are a Sanskrit scholar, musicologist, and Vedic philosopher with deep knowledge of Natyashastra, Upanishads, and Indian classical music. Generate a sacred composition with the following parameters:
+
+PARAMETERS:
+- Consciousness Layer: ${params.layer} (${LAYER_NAMES[params.layer]})
+- Vedic Source: ${params.veda}
+- Raga: ${params.raga}
+- Tala: ${params.tala}
+- Primary Mudra: ${params.mudra}
+- Bhava (emotion): ${params.bhava}
+- Genre: ${params.genre}
+- Theme: ${params.theme}
+
+Respond ONLY with a valid JSON object (no markdown, no backticks) with these exact fields:
+{
+  "title_devanagari": "Title in Devanagari script (4-6 words)",
+  "title_roman": "Title in Roman transliteration",
+  "verse_devanagari": "4-line Sanskrit verse in Devanagari appropriate to the raga and bhava. Use classical metre (anustubh or appropriate chandas).",
+  "verse_roman": "Roman transliteration of the verse",
+  "layer_interpretation": "How this composition is understood through the selected consciousness layer (3-4 sentences). Be philosophically deep.",
+  "compositional_architecture": "Detailed description of how raga, tala, and mudra integrate in this specific composition (3-4 sentences). Include specific musical details.",
+  "vedic_resonance": "Which specific Vedic hymn, Upanishad verse, or Brahmasutra this resonates with, and how (2-3 sentences). Quote the Upanishadic source.",
+  "mudra_karana": "Specific mudra prescription and karana sequence for performing this composition (2-3 sentences). Include body positioning and gaze direction.",
+  "tags": ["tag1","tag2","tag3","tag4","tag5"]
+}`;
+
+  try{
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1500,
+        messages:[{role:'user',content:prompt}]
+      })
+    });
+    const data=await resp.json();
+    const text=data.content?.find(c=>c.type==='text')?.text||'';
+    const clean=text.replace(/```json|```/g,'').trim();
+    const comp=JSON.parse(clean);
+    
+    compTotal++;
+    lastResult={...comp,...params,id:`NM-${Date.now()}-${compTotal}`};
+    
+    document.getElementById('r-id').textContent=`Composition ${lastResult.id} · ${params.genre} · ${params.raga} · ${params.tala}`;
+    document.getElementById('r-san').textContent=comp.verse_devanagari||'';
+    document.getElementById('r-rom').textContent=comp.verse_roman||'';
+    document.getElementById('r-layer-name').textContent=LAYER_NAMES[params.layer];
+    document.getElementById('r-interp').textContent=comp.layer_interpretation||'';
+    document.getElementById('r-comp').textContent=comp.compositional_architecture||'';
+    document.getElementById('r-vedic').textContent=comp.vedic_resonance||'';
+    document.getElementById('r-mudra').textContent=comp.mudra_karana||'';
+    
+    const tags=document.getElementById('r-tags');
+    tags.innerHTML=(comp.tags||[]).map(t=>`<span class="rtag">${t}</span>`).join('');
+    
+    result.classList.add('show');
+    updateMeter();
+    
+  }catch(e){
+    result.innerHTML=`<div class="errmsg">Generation encountered an error: ${e.message}. Please try again.</div>`;
+    result.classList.add('show');
+  }
+  
+  btn.disabled=false;
+  btn.textContent='✦ Generate Sacred Composition ✦';
+}
+
+/* ======================================
+   SAVE COMPOSITION
+====================================== */
+async function saveComposition(){
+  if(!lastResult)return;
+  try{
+    const existing=await window.storage.list('comp:').catch(()=>({keys:[]}));
+    if(existing&&existing.keys&&existing.keys.length>=50000){
+      alert('Universe capacity reached: 50,000 compositions saved!');return;
+    }
+    await window.storage.set(`comp:${lastResult.id}`,JSON.stringify(lastResult));
+    loadSaved();
+    alert(`Composition ${lastResult.id} saved to the Universe! ✦`);
+  }catch(e){
+    // Storage not available — show confirmation anyway
+    alert('Composition recorded (storage unavailable in this context).');
+  }
+}
+
+/* ======================================
+   LOAD SAVED
+====================================== */
+async function loadSaved(){
+  try{
+    const keys=await window.storage.list('comp:');
+    if(!keys||!keys.keys||keys.keys.length===0)return;
+    const sec=document.getElementById('savedSec');
+    const grid=document.getElementById('savedGrid');
+    sec.style.display='block';
+    const items=[];
+    for(const k of keys.keys.slice(-20)){
+      try{
+        const v=await window.storage.get(k);
+        if(v)items.push(JSON.parse(v.value));
+      }catch(e){}
+    }
+    grid.innerHTML=items.reverse().map(c=>`
+      <div class="scard">
+        <div class="sc-id">${c.id||'Unknown'}</div>
+        <div class="sc-title">${c.title_devanagari||'—'}</div>
+        <div class="sc-meta">${c.raga||''} · ${c.genre||''} · ${c.bhava||''}</div>
+      </div>`).join('');
+    compTotal=keys.keys.length;
+    updateMeter();
+  }catch(e){}
+}
+
+/* ======================================
+   UNIVERSE METER
+====================================== */
+function updateMeter(){
+  const pct=Math.min((compTotal/50000)*100,100);
+  document.getElementById('umFill').style.width=pct+'%';
+  document.getElementById('compCounter').textContent=
+    `${compTotal.toLocaleString()} / 50,000 Compositions Created`;
+}
+
+/* ======================================
+   INIT
+====================================== */
+window.addEventListener('DOMContentLoaded',()=>{
+  renderPanel();
+  loadSaved();
+});
+</script>
+</body>
+</html>
